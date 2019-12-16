@@ -8,6 +8,8 @@ app.use(bodyParser.json())
 
 app.use(cors())
 
+app.use(express.static('build'))
+
 morgan.token('id', function getId(req) {
     return req.id
 })
@@ -32,7 +34,7 @@ let persons = [
 ]
 
 
-app.get('/api/persons', (req, res) => {
+app.get('/persons', (req, res) => {
 
     //console.log('what is the response anyway?', res)
     //console.log('what is the request anyway?', req)
@@ -40,7 +42,7 @@ app.get('/api/persons', (req, res) => {
     res.json(persons)
 })
 
-app.get('/api/persons/:id', (req, res) => {
+app.get('/persons/:id', (req, res) => {
     const id = Number(req.params.id)
     const person = persons.find(person => person.id === id)
 
@@ -60,7 +62,7 @@ const generateId = () =>{
 }
 */
 
-app.post('/api/persons', (req, res) =>{
+app.post('/persons', (req, res) =>{
 
     const body = req.body
 
@@ -93,7 +95,7 @@ app.post('/api/persons', (req, res) =>{
     res.json(person)
 })
 
-app.delete('/api/persons/:id', (req, res) => {
+app.delete('/persons/:id', (req, res) => {
 
     const id = Number(req.params.id)
     
@@ -103,7 +105,7 @@ app.delete('/api/persons/:id', (req, res) => {
 })
 
 
-app.get('/api/info', (req, res) => {
+app.get('/info', (req, res) => {
 
     // 
     const num_pers = persons.length
