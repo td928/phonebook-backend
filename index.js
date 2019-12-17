@@ -34,7 +34,7 @@ let persons = [
 ]
 
 
-app.get('/persons', (req, res) => {
+app.get('/api/persons', (req, res) => {
 
     //console.log('what is the response anyway?', res)
     //console.log('what is the request anyway?', req)
@@ -42,7 +42,7 @@ app.get('/persons', (req, res) => {
     res.json(persons)
 })
 
-app.get('/persons/:id', (req, res) => {
+app.get('/api/persons/:id', (req, res) => {
     const id = Number(req.params.id)
     const person = persons.find(person => person.id === id)
 
@@ -62,7 +62,7 @@ const generateId = () =>{
 }
 */
 
-app.post('/persons', (req, res) =>{
+app.post('/api/persons', (req, res) =>{
 
     const body = req.body
 
@@ -95,7 +95,7 @@ app.post('/persons', (req, res) =>{
     res.json(person)
 })
 
-app.delete('/persons/:id', (req, res) => {
+app.delete('/api/persons/:id', (req, res) => {
 
     const id = Number(req.params.id)
     
@@ -105,7 +105,7 @@ app.delete('/persons/:id', (req, res) => {
 })
 
 
-app.get('/info', (req, res) => {
+app.get('/api/info', (req, res) => {
 
     // 
     const num_pers = persons.length

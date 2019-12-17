@@ -1,0 +1,7 @@
+post https://damp-retreat-25695.herokuapp.com/api/persons
+Content-Type: application/json
+
+{
+    "name": "Te Du",
+    "number": "311726182"
+}
