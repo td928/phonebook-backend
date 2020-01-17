@@ -110,7 +110,7 @@ app.get('/api/info', (req, res) => {
     // 
     const num_pers = persons.length
 
-    const date = Date.now()
+    const date = Date()
 
     res.write(`Phonebook has info for ${num_pers} people`)
 
